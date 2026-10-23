@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#143c35" />
+    <meta name="description" content="A calm, staff-reviewed lost-and-found scan station for childcare centres." />
+    <title>Find & Return — Lost and Found</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#overview" aria-label="Find and Return home">
+          <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5 27.8 10v12L16 28.5 4.2 22V10L16 3.5Z"/><path d="m10.8 16 3.4 3.5 7-7.1"/></svg></span>
+          <span><strong>find<span>&</span>return</strong><small>Little things, back home.</small></span>
+        </a>
+        <div class="side-label">WORKSPACE</div>
+        <nav class="side-nav" aria-label="Main navigation">
+          <button class="nav-link active" data-page="overview"><span class="nav-icon">◫</span>Overview</button>
+          <button class="nav-link" data-page="registry"><span class="nav-icon">▤</span>Item registry<span class="nav-count" id="registry-nav-count">—</span></button>
+          <button class="nav-link" data-page="returns"><span class="nav-icon">↗</span>Ready to return<span class="nav-count mint" id="return-nav-count">0</span></button>
+        </nav>
+        <div class="side-divider"></div>
+        <div class="side-label">YOUR STATION</div>
+        <div class="station-card">
+          <span class="station-dot"></span>
+          <div><strong>Room 01 · Sunflower</strong><small><span class="online-dot"></span> Station ready</small></div>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="privacy-note"><span class="privacy-icon">◉</span><div><strong>Privacy by design</strong><small>Belongings only. Photos stay on this device.</small></div></div>
+        <div class="profile-row"><div class="avatar">M</div><div><strong>Staff workspace</strong><small>Local demo mode</small></div><button class="more-button" aria-label="More options">···</button></div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Sunflower Centre</span><span class="crumb-slash">/</span><strong id="crumb-page">Overview</strong></div>
+          <div class="topbar-right"><span class="date-label" id="today-label"></span><span class="top-separator"></span><span class="top-avatar">S</span><span class="staff-name">Staff</span></div>
+        </header>
+
+        <section class="page active" id="page-overview">
+          <div class="welcome-row">
+            <div><div class="eyebrow"><span class="sparkle">✳</span> YOUR LOST & FOUND, IN ONE PLACE</div><h1>Good morning, team<span class="title-period">.</span></h1><p class="welcome-copy">A little help getting their little things back.</p></div>
+            <button class="button button-dark" id="open-scan"><span class="button-camera">⌕</span> Scan an item <span class="button-arrow">↗</span></button>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-copy"><div class="hero-kicker"><span class="hero-kicker-dot"></span> THE DAILY PICK-UP</div><h2>Found something?<br /><em>Let’s find its way home.</em></h2><p>Place it on the tray, take a quick scan, and we’ll surface the closest matches for your team to review.</p><button class="button button-lime" id="hero-scan">Start a scan <span>↗</span></button><div class="hero-footnote"><span class="tiny-shield">◉</span> Staff always makes the final match</div></div>
+            <div class="hero-visual" aria-hidden="true"><div class="visual-glow"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="tray"><div class="tray-inner"><div class="tray-grid"></div><div class="tray-shadow"></div><div class="mini-bottle"><div class="bottle-cap"></div><div class="bottle-body"><i></i><i></i><i></i></div></div><div class="scan-ring"></div></div><div class="tray-base"></div></div><div class="visual-tag tag-camera"><span>✳</span> 3-angle capture</div><div class="visual-tag tag-match"><span>✓</span> Match found <b>94%</b></div><div class="visual-dot dot-one"></div><div class="visual-dot dot-two"></div></div>
+          </div>
+
+          <div class="section-heading stats-heading"><div><h2>Your centre at a glance</h2><p>A quick look at the little things in motion.</p></div><span class="live-label"><i></i> LIVE OVERVIEW</span></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-green">▤</span><span class="stat-trend">IN THE REGISTER</span></div><div class="stat-value" id="stat-registered">—</div><div class="stat-label">Registered belongings</div><div class="stat-foot">Ready to be recognised</div><div class="stat-spark spark-green"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-amber">⌕</span><span class="stat-trend amber-trend">NEEDS A LOOK</span></div><div class="stat-value" id="stat-found">—</div><div class="stat-label">Waiting to go home</div><div class="stat-foot">Found · awaiting family pick-up</div><div class="stat-spark spark-amber"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-blue">↗</span><span class="stat-trend blue-trend">ALL REUNITED</span></div><div class="stat-value" id="stat-returned">—</div><div class="stat-label">Items returned</div><div class="stat-foot">Nice work, team <span class="inline-heart">♥</span></div><div class="stat-spark spark-blue"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel recent-panel"><div class="panel-heading"><div><h2>Most recently found</h2><p>Little discoveries, ready for pick-up.</p></div><button class="text-link" data-page-link="returns">View all <span>→</span></button></div><div id="recent-found-list" class="recent-list"></div></section>
+            <section class="panel activity-panel"><div class="panel-heading"><div><h2>Today’s little wins</h2><p>A happy trail of things back home.</p></div><span class="activity-mark">✳</span></div><div id="activity-list" class="activity-list"></div></section>
+          </div>
+
+          <section class="demo-band"><div class="demo-band-icon">✳</div><div><strong>Just exploring? Try a sample scan.</strong><span>Use a demo belonging to see the match review in action.</span></div><div id="demo-samples" class="demo-samples"></div></section>
+          <footer class="footer-note"><span>Made for the busy bits between drop-off and pick-up.</span><span>Find & Return <b>·</b> Local proof of concept</span></footer>
+        </section>
+
+        <section class="page" id="page-registry">
+          <div class="page-title-row"><div><div class="eyebrow">THE BELONGINGS LIST</div><h1>Item registry<span class="title-period">.</span></h1><p class="welcome-copy">A picture and a few details make lost things easier to recognise.</p></div><button class="button button-dark" id="open-register"><span>＋</span> Add a belonging</button></div>
+          <div class="toolbar"><div class="search-box"><span>⌕</span><input type="search" id="registry-search" placeholder="Search items, categories or room labels" /></div><div class="filter-pills"><button class="filter-pill active" data-filter="all">All items <span id="filter-all-count">0</span></button><button class="filter-pill" data-filter="registered">Registered</button><button class="filter-pill" data-filter="found">Found</button><button class="filter-pill" data-filter="returned">Returned</button></div></div>
+          <div id="registry-grid" class="registry-grid"></div>
+          <footer class="footer-note"><span>Registry details use room labels only in this demo.</span><span>Find & Return <b>·</b> Local proof of concept</span></footer>
+        </section>
+
+        <section class="page" id="page-returns">
+          <div class="page-title-row"><div><div class="eyebrow">THE PICK-UP SHELF</div><h1>Ready to return<span class="title-period">.</span></h1><p class="welcome-copy">Items your team has found and confirmed, all in one place.</p></div><button class="button button-dark" id="returns-scan"><span class="button-camera">⌕</span> Scan an item <span class="button-arrow">↗</span></button></div>
+          <div class="returns-summary"><div class="returns-summary-icon">↗</div><div><strong id="returns-summary-title">A little room for more happy reunions.</strong><span id="returns-summary-copy">Found belongings will show up here after a staff member confirms a match.</span></div><div class="returns-summary-count"><b id="returns-count">0</b><span>WAITING</span></div></div>
+          <div class="section-heading return-section-head"><div><h2>Waiting for pick-up</h2><p>Mark it returned when it reaches the right family.</p></div></div>
+          <div id="return-list" class="return-list"></div>
+          <div class="section-heading returned-section-head"><div><h2>Already back home</h2><p>A record of completed reunions.</p></div></div>
+          <div id="returned-list" class="returned-list"></div>
+          <footer class="footer-note"><span>Only staff-confirmed matches appear in this queue.</span><span>Find & Return <b>·</b> Local proof of concept</span></footer>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="scan-modal" aria-hidden="true">
+      <section class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="scan-modal-title">
+        <div class="modal-header"><div><div class="eyebrow">THE SCAN STATION</div><h2 id="scan-modal-title">Let’s take a closer look.</h2><p>Keep it to belongings. No children in frame, please.</p></div><button class="close-modal" data-close="scan-modal" aria-label="Close">×</button></div>
+        <div class="scan-content" id="scan-content">
+          <div class="capture-stage" id="capture-stage"><div class="capture-empty" id="capture-empty"><div class="capture-illustration"><div class="capture-tray"><span>✳</span></div><div class="capture-corner corner-a"></div><div class="capture-corner corner-b"></div><div class="capture-corner corner-c"></div><div class="capture-corner corner-d"></div></div><strong>Place one item in the frame</strong><span>Camera captures three tray angles. Upload one to three views.</span><div class="capture-actions"><button class="button button-dark" id="take-photo"><span>◉</span> Use camera</button><label class="button button-light" for="scan-file">Upload photos</label></div><button class="camera-switch" id="switch-camera" hidden>Use front camera</button><input type="file" id="scan-file" accept="image/*" multiple hidden /></div><video id="camera-video" autoplay playsinline hidden></video><img id="scan-preview" alt="Item to scan" hidden /><canvas id="capture-canvas" hidden></canvas><div class="capture-overlay" id="capture-overlay" hidden><span>ANGLE 1 OF 3 · PLACE ITEM</span><button id="snap-photo" aria-label="Take photo">◉</button></div><div class="capture-loading" id="capture-loading" hidden><span class="spinner"></span><b>Looking for familiar colours, shapes and patterns…</b></div></div>
+          <div class="scan-instructions"><span class="step-number">01</span><div><strong>One item at a time</strong><small>Spread it out so the whole shape is visible.</small></div><span class="instruction-check">✓</span></div>
+          <div class="scan-instructions"><span class="step-number">02</span><div><strong>Rotate between camera views</strong><small>Turn the tray gently; keep the item centred.</small></div><span class="instruction-check">✓</span></div>
+          <div class="scan-instructions"><span class="step-number">03</span><div><strong>Review before you confirm</strong><small>Suggestions help your team; they never decide.</small></div><span class="instruction-check">✓</span></div>
+          <div class="scan-private"><span>◉</span> Photos stay on this device in local demo mode.</div>
+        </div>
+        <div id="match-results" class="match-results" hidden></div>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="register-modal" aria-hidden="true">
+      <section class="modal register-modal" role="dialog" aria-modal="true" aria-labelledby="register-title">
+        <div class="modal-header"><div><div class="eyebrow">ADD TO THE REGISTER</div><h2 id="register-title">A little something to remember.</h2><p>Use a room label or non-personal reference. Skip names and contact details.</p></div><button class="close-modal" data-close="register-modal" aria-label="Close">×</button></div>
+        <form id="register-form" class="register-form">
+          <div class="form-photo-row"><label class="upload-tile" for="register-file"><span class="upload-plus">＋</span><span id="register-file-label">Add a photo</span><small>JPG or PNG · up to 8 MB</small><input type="file" id="register-file" name="photo" accept="image/*" hidden /></label><div class="form-photo-tip"><span>✳</span><strong>A clear picture is the helpful bit.</strong><small>Try the same plain tray you’ll use for found items.</small></div></div>
+          <label class="field-label">What is it called?<input name="label" placeholder="e.g. Blue star water bottle" required maxlength="80" /></label>
+          <div class="form-row"><label class="field-label">Item type<select name="category" required><option value="">Choose a category</option><option>Bottle</option><option>Lunchbox</option><option>Clothing</option><option>Footwear</option><option>Toy</option><option>Bag</option><option>Other</option></select></label><label class="field-label">Room label <span>optional</span><input name="family_ref" placeholder="e.g. Sunflower room · L-028" maxlength="80" /></label></div>
+          <div class="form-privacy"><span>◉</span><span>Keep it simple: no child photos, names, or phone numbers. Use only the reference your centre already uses.</span></div>
+          <div class="form-actions"><button type="button" class="button button-light" data-close="register-modal">Cancel</button><button type="submit" class="button button-dark" id="save-register">Save belonging <span>↗</span></button></div>
+        </form>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>
